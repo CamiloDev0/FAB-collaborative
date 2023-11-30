@@ -5,10 +5,6 @@ import './App.css';
 function App() {
   const [screenACtive, setScreenActive] = useState(1);
   const [ipadActive, setIpadActive] = useState(false);
-  //const [intervalTime, setIntervalTime] = useState(2000);
-  //const [image, setImage] = useState();
-
-  //let interval:any = null;
 
   const renderScreen = ( ) => {
     switch( screenACtive ){
@@ -105,58 +101,68 @@ function App() {
     );
   }
 
-  // useMemo(() => {
-  //   if(ipadActive)
-  //     clearInterval(interval);
-  // }, [ipadActive])
+  useEffect(() => {
+    let interval: any = null;
+    
+    const fetchData = async () => {
+      try {
+        const url = "https://mocionws.info/dbController.php?table=dubai&method=records&count=1";
+        const res = await axios.get(url);
+        const active = res.data > 0;
+        console.log("COUNT ===>", res.data, active);
+        
+        setIpadActive(active);
+        console.log("IPADs STATE AFTER  ===>", active);
+        
+        let screen = active ? 2 : 1;
+        setScreenActive(screen);
+      } catch (err) {
+        console.log("ERROR REQUEST WS ===>", err);
+      }
+    };
+
+    interval = setInterval(() => {
+      console.log("IPADs STATE BEFORE ===>", ipadActive);
+      if (!ipadActive) {
+        fetchData();
+      }
+    }, 2000);
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [ipadActive]);
 
   useEffect(() => {
-    setInterval(() => {
-      if(!ipadActive){
-        const url = "https://mocionws.info/dbController.php?table=dubai&method=records&count=1";
-        axios({ method: "get", url}).then((res:any) => {
-          console.log(res.data > 0);
-          setIpadActive(res.data > 0);
-          // if(ipadActive)
-          //   clearInterval(interval);
-        }).catch((err) => console.log("ERROR REQUEST WS ====> ", err));
-      }else{
-        hideElements();
-        const url = "https://mocionws.info/dbController.php?table=dubai&method=records";
-        axios({ method: "get", url}).then((res:any) => {
+    let intervalI: any = null;
+
+    const getImages = async() => {
+      hideElements();
+      const url = "https://mocionws.info/dbController.php?table=dubai&method=records";
+      axios({ method: "get", url}).then((res:any) => {
+        if(!res.data.length)
+          window.location.reload();
+        else{
           res.data.forEach((element: { image: string }) => {
             const el = document.querySelector('.' + element.image) as HTMLElement;
             if (el) {
               el.style.display = 'block';
             }
           });
-        }).catch((err) => console.log("ERROR REQUEST WS ====> ", err));
-      }
-    }, 2000)
-  }, [])
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     if(ipadActive){
-  //       hideElements();
-  //       const url = "https://mocionws.info/dbController.php?table=dubai&method=records";
-  //       axios({ method: "get", url}).then((res:any) => {
-  //         res.data.forEach((element: { image: string }) => {
-  //           const el = document.querySelector('.' + element.image) as HTMLElement;
-  //           if (el) {
-  //             el.style.display = 'block';
-  //           }
-  //         });
-  //       }).catch((err) => console.log("ERROR REQUEST WS ====> ", err));
-  //     }
-  //   }, 1000)
-  // }, [])
-
-  useEffect(() => {
-    if(ipadActive){
-      setScreenActive(2);
+        }
+      }).catch((err) => console.log("ERROR REQUEST IMAGES WS ====> ", err));
     }
-  }, [ipadActive])
+
+    intervalI = setInterval(() => {
+      console.log("IPADs STATE BEFORE GET IMAGES ===>", ipadActive);
+      if (ipadActive) {
+        getImages();
+      }
+    }, 1000);
+  }, [ipadActive]);
+
 
   const hideElements = () => {
     document.querySelectorAll('.wave').forEach((a) => {
