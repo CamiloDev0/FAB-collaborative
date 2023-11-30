@@ -74,7 +74,7 @@ function App() {
         src={`/1080_1.mp4`}
         playsInline 
         loop
-        muted={false}>
+        muted={true}>
       </video>
     );
   }
