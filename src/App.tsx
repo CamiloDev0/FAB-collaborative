@@ -136,8 +136,6 @@ function App() {
   }, [ipadActive]);
 
   useEffect(() => {
-    let intervalI: any = null;
-
     const getImages = async() => {
       hideElements();
       const url = "https://mocionws.info/dbController.php?table=dubai&method=records";
@@ -155,7 +153,7 @@ function App() {
       }).catch((err) => console.log("ERROR REQUEST IMAGES WS ====> ", err));
     }
 
-    intervalI = setInterval(() => {
+    setInterval(() => {
       console.log("IPADs STATE BEFORE GET IMAGES ===>", ipadActive);
       if (ipadActive) {
         getImages();
