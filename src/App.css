@@ -1,0 +1,307 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* body{
+  background-color: white;
+} */
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen{
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: center;
+  font-size: xx-large;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.active{
+  display: block;
+}
+
+video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.screen-two{
+  background-image: url('/MAP.png');
+}
+
+.waves, .wave, .points, .point, .lines, .line, .boxes, .box{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wave, .point, .line, .box{
+  display: none;
+}
+
+
+.wave-t{
+  background-image: url('/waves/top.gif');
+}
+.wave-l{
+  background-image: url('/waves/left.gif');
+}
+.wave-b{
+  background-image: url('/waves/bottom.gif');
+}
+.wave-r{
+  background-image: url('/waves/right.gif');
+}
+
+.point-france{
+  background-image: url('/points/France.gif');
+}
+.point-ksa{
+  background-image: url('/points/ksa.gif');
+}
+.point-morroco{
+  background-image: url('/points/Morroco.gif');
+}
+.point-oman{
+  background-image: url('/points/Oman.gif');
+}
+.point-turkey{
+  background-image: url('/points/turkey.gif');
+}
+.point-uae{
+  background-image: url('/points/UAE.gif');
+}
+.point-usa{
+  background-image: url('/points/USA.gif');
+}
+.point-uzbekistan{
+  background-image: url('/points/Uzbekistan.gif');
+}
+
+.line-FRANCE-t{
+  background-image: url('/FRANCE/FRANCE-t.png');
+}
+.line-FRANCE-r{
+  background-image: url('/FRANCE/FRANCE-r.png');
+}
+.line-FRANCE-b{
+  background-image: url('/FRANCE/FRANCE-b.png');
+}
+.line-FRANCE-l{
+  background-image: url('/FRANCE/FRANCE-l.png');
+}
+
+.line-KSA-t{
+  background-image: url('/KSA/KSA-t.png');
+}
+.line-KSA-r{
+  background-image: url('/KSA/KSA-r.png');
+}
+.line-KSA-b{
+  background-image: url('/KSA/KSA-b.png');
+}
+.line-KSA-l{
+  background-image: url('/KSA/KSA-l.png');
+}
+
+.line-MORROCO-t{
+  background-image: url('/MORROCO/MORROCO-t.png');
+}
+.line-MORROCO-r{
+  background-image: url('/MORROCO/MORROCO-r.png');
+}
+.line-MORROCO-b{
+  background-image: url('/MORROCO/MORROCO-b.png');
+}
+.line-MORROCO-l{
+  background-image: url('/MORROCO/MORROCO-l.png');
+}
+
+.line-OMAN-t{
+  background-image: url('/OMAN/OMAN-t.png');
+}
+.line-OMAN-r{
+  background-image: url('/OMAN/OMAN-r.png');
+}
+.line-OMAN-b{
+  background-image: url('/OMAN/OMAN-b.png');
+}
+.line-OMAN-l{
+  background-image: url('/OMAN/OMAN-l.png');
+}
+
+.line-TURKEY-t{
+  background-image: url('/TURKEY/TURKEY-t.png');
+}
+.line-TURKEY-r{
+  background-image: url('/TURKEY/TURKEY-r.png');
+}
+.line-TURKEY-b{
+  background-image: url('/TURKEY/TURKEY-b.png');
+}
+.line-TURKEY-l{
+  background-image: url('/TURKEY/TURKEY-l.png');
+}
+
+.line-UAE-t{
+  background-image: url('/UAE/UAE-t.png');
+}
+.line-UAE-r{
+  background-image: url('/UAE/UAE-r.png');
+}
+.line-UAE-b{
+  background-image: url('/UAE/UAE-b.png');
+}
+.line-UAE-l{
+  background-image: url('/UAE/UAE-l.png');
+}
+
+.line-USA-t{
+  background-image: url('/USA/USA-t.png');
+}
+.line-USA-r{
+  background-image: url('/USA/USA-r.png');
+}
+.line-USA-b{
+  background-image: url('/USA/USA-b.png');
+}
+.line-USA-l{
+  background-image: url('/USA/USA-l.png');
+}
+
+.line-UZBEKISTAN-t{
+  background-image: url('/UZBEKISTAN/UZBEKISTAN-t.png');
+}
+.line-UZBEKISTAN-r{
+  background-image: url('/UZBEKISTAN/UZBEKISTAN-r.png');
+}
+.line-UZBEKISTAN-b{
+  background-image: url('/UZBEKISTAN/UZBEKISTAN-b.png');
+}
+.line-UZBEKISTAN-l{
+  background-image: url('/UZBEKISTAN/UZBEKISTAN-l.png');
+}
+
+.box-renewable-t{
+  background-image: url('/box/renewable-t.png');
+}
+.box-renewable-l{
+  background-image: url('/box/renewable-l.png');
+}
+.box-renewable-b{
+  background-image: url('/box/renewable-b.png');
+}
+.box-renewable-r{
+  background-image: url('/box/renewable-r.png');
+}
+
+.box-advisory-t{
+  background-image: url('/box/advisory-t.png');
+}
+.box-advisory-l{
+  background-image: url('/box/advisory-l.png');
+}
+.box-advisory-b{
+  background-image: url('/box/advisory-b.png');
+}
+.box-advisory-r{
+  background-image: url('/box/advisory-r.png');
+}
+
+.box-clean-t{
+  background-image: url('/box/clean-t.png');
+}
+.box-clean-l{
+  background-image: url('/box/clean-l.png');
+}
+.box-clean-b{
+  background-image: url('/box/clean-b.png');
+}
+.box-clean-r{
+  background-image: url('/box/clean-r.png');
+}
+
+.box-energy-t{
+  background-image: url('/box/energy-t.png');
+}
+.box-energy-l{
+  background-image: url('/box/energy-l.png');
+}
+.box-energy-b{
+  background-image: url('/box/energy-b.png');
+}
+.box-energy-r{
+  background-image: url('/box/energy-r.png');
+}
+
+.box-greeb-t{
+  background-image: url('/box/greeb-t.png');
+}
+.box-greeb-l{
+  background-image: url('/box/greeb-l.png');
+}
+.box-greeb-b{
+  background-image: url('/box/greeb-b.png');
+}
+.box-greeb-r{
+  background-image: url('/box/greeb-r.png');
+}
+
+.box-renergy-t{
+  background-image: url('/box/renergy-t.png');
+}
+.box-renergy-l{
+  background-image: url('/box/renergy-l.png');
+}
+.box-renergy-b{
+  background-image: url('/box/renergy-b.png');
+}
+.box-renergy-r{
+  background-image: url('/box/renergy-r.png');
+}
+
+.box-sustainability-t{
+  background-image: url('/box/sustainability-t.png');
+}
+.box-sustainability-l{
+  background-image: url('/box/sustainability-l.png');
+}
+.box-sustainability-b{
+  background-image: url('/box/sustainability-b.png');
+}
+.box-sustainability-r{
+  background-image: url('/box/sustainability-r.png');
+}
+
+.box-sustainable-t{
+  background-image: url('/box/sustainable-t.png');
+}
+.box-sustainable-l{
+  background-image: url('/box/sustainable-l.png');
+}
+.box-sustainable-b{
+  background-image: url('/box/sustainable-b.png');
+}
+.box-sustainable-r{
+  background-image: url('/box/sustainable-r.png');
+}
