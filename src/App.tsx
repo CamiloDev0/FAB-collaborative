@@ -111,7 +111,7 @@ function App() {
   // }, [ipadActive])
 
   useEffect(() => {
-    interval = setInterval(() => {
+    setInterval(() => {
       if(!ipadActive){
         const url = "https://mocionws.info/dbController.php?table=dubai&method=records&count=1";
         axios({ method: "get", url}).then((res:any) => {
