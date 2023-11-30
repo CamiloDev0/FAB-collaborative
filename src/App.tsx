@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo  } from 'react';
+import { useState, useEffect  } from 'react';
 import axios from "axios";
 import './App.css';
 
@@ -8,7 +8,7 @@ function App() {
   //const [intervalTime, setIntervalTime] = useState(2000);
   //const [image, setImage] = useState();
 
-  let interval:any = null;
+  //let interval:any = null;
 
   const renderScreen = ( ) => {
     switch( screenACtive ){
