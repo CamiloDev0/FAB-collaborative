@@ -47,8 +47,8 @@ video {
 }
 
 .waves, .wave, .points, .point, .lines, .line, .boxes, .box{
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%; /*SI NO ES ESTE POS TESUER*/
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
